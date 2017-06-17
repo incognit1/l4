@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="author" content="Лещенко Владислав. ТМ-52"/>
+	<title>Form</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" href="font-awesome.min.css"/>
+	<script type="text/javascript">
+		function validator(form){
+			var pass = form.password.value;
+			var repass = form.repassword.value;
+			var check = (pass===repass);
+			if(check==false) alert("Пароли не совпадают. Пожалуйста попробуйте ввести еще раз.");
+			}</script>
+</head>
+	<div class="main">
+		<div class="reg">
+			<h2>Register</h2>
+			<p>Insert your accaunt information</p>
+			<form id="form" onsubmit="validator(this)" method="POST">
+				<input type="text" id="name" placeholder="Username" pattern="^[a-zA-Z]+$" />
+				<input type="text" placeholder="Email"  pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"/>
+				<input type="password" id="password" placeholder="Password" />
+				<input type="password" id="repassword" placeholder="Repeat password" />
+				<input type="checkbox" id="a" onchange="document.getElementById('submit').disabled = !this.checked" />
+				<label for="a">I agree the Terms of Use</label>
+				<input type="submit" id='submit' disabled value="REGISTER" />
+			</form>
+		</div>
+
+		<div class="sign-up">
+			<h2>Login</h2>
+			<p>Login using social network:</p>
+			<button id="fb">Sign In with Facebook</button>
+			<button id="tw">Sign In with Twitter</button>
+			<p>Or insert your account information:</p>
+			<form id="log">
+				<input type="text" placeholder="Username">
+				<input type="password" placeholder="Password">
+				<input type="checkbox" id="b"><label for="b">Keep me logged in</label>
+				<input type="submit" value="LOGIN">
+				<p id="last">Don't have an account? <a href="#">Register</a></p>
+				<p>Forgot your <a href="#">Password</a> or <a href="#">Username</a></p>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>
